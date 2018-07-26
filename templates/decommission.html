@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mapping Migration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+    body {
+        margin: 5% 10% 0 10%;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 16px;
+    }
+
+    a {
+        color: #000;
+
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+
+        /* This is the dangerous one in WebKit, as it breaks things wherever */
+        word-break: break-all;
+
+        /* Instead use this non-standard one: */
+        word-break: break-word;
+    }
+
+    a:hover {
+        opacity: 0.6;
+    }
+
+    h5 {
+        margin: 3em 0 0 0;
+        color: #e55234;
+        font-size: 0.8em;
+    }
+
+    h1 {
+        font-weight: normal;
+        margin: 0;
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+        margin: 0;
+        line-height: 2em;
+    }
+
+    img {
+        border: 1px solid #777;
+        margin: 0.5em 0;
+        width: 100%;
+    }
+
+    /* Note */
+
+    .note-wrapper {
+        border-bottom: 1px solid #999;
+        font-size: 0.8em;
+    }
+
+    .note-wrapper p {
+        margin: 2em 0;
+    }
+
+    .note {
+        margin-bottom: 3em;
+    }
+
+    .readmore-state {
+        display: none;
+    }
+
+    .readmore-target {
+        opacity: 0;
+        max-height: 0;
+        font-size: 0;
+        transition: 0.5s ease;
+    }
+
+    ul.readmore-target li {
+        margin: 1em 0;
+        line-height: 2em;
+    }
+
+    ul.readmore-target li:last-child {
+        margin-bottom: 5em;
+    }
+
+    .readmore-state:checked ~ .note .readmore-target {
+        opacity: 1;
+        font-size: inherit;
+        max-height: 999em;
+    }
+
+    .readmore-state ~ .readmore-trigger:before {
+        content: 'Read more >';
+    }
+
+    .readmore-state ~ label.readmore-trigger {
+        margin: -5em 0 6em 0;
+        display: inline-block;
+        border: 1px solid #777;
+    }
+
+    .readmore-state:checked ~ .readmore-trigger:before {
+        content: '< Show less';
+    }
+
+    .readmore-state:checked ~ label.readmore-trigger {
+    }
+
+    .readmore-trigger {
+        cursor: pointer;
+        display: inline-block;
+        text-align: right;
+        margin-right: 2em;
+        color: #777;
+        padding: 1em;
+        font-size: 0.8em;
+        position: absolute;
+        right: 10%;
+    }
+
+    .readmore-trigger:hover {
+        opacity: 0.6;
+    }
+
+    footer {
+        border-top: 1px solid #999;
+        text-align: right;
+        margin-top: 5em;
+        font-size: 0.6em;
+        padding-top: 1em;
+        color: #777;
+    }
+
+    footer a {
+        color: #777;
+    }
+
+    footer p {
+        width: 65%;
+        padding: 0 2% 0.9em 0;
+        display: inline-block;
+        margin: 0;
+    }
+
+    footer img {
+        width: 10em;
+        border: none;
+        cursor: pointer;
+        margin: 0;
+        display: inline-block;
+    }
+
+    footer img:hover {
+        opacity: 0.6;
+    }
+
+    @media all and (max-width: 768px) {
+        body {
+            margin: 5% 5% 0 5%;
+            font-size: 14px;
+        }
+
+        .readmore-trigger {
+            right: 5%;
+        }
+    }
+
+    @media all and (max-width: 450px) {
+        body {
+            margin: 5% 3% 0 3%;
+            font-size: 12px;
+        }
+
+        .readmore-trigger {
+            width: 89%;
+            left: 3%;
+            right: 3%;
+            text-align: center;
+        }
+
+        footer p {
+            width: 100%;
+            padding: 1em 0 2em 0;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer img {
+            width: 20%;
+            border: none;
+            cursor: pointer;
+            margin: 0 40%;
+            display: block;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="note-wrapper">
+        <input type="checkbox" class="readmore-state" id="readmore" />
+        <p>This site has been archived as part of <a href="https://www.kdl.kcl.ac.uk">King's Digital Lab</a> (KDL) archiving and sustainability process, following background analysis and consultation with research leads wherever possible. </p>
+        <p>Project content and data has been stored as a fully backed-up Virtual Machine and can be made available on request (depending on access controls agreed with the Principal Investigator)for a period of at least 2 years from the decommissioning date indicated below.
+        </p>
+        <p>If you have an interest in this project and would like to support a future phase please contact us by filling in this <a href="https://www.kdl.kcl.ac.uk/report-issue/">form</a>.</p>
+        <div class="note">
+            <p class="readmore-target">At its inception, KDL inherited just under 100 digital research projects and websites. Aware of the intellectual and cultural value of many of these projects, with the support of the Faculty of Arts and Humanities at King’s College London, KDL took on its responsibility to the community to steward them in a responsible manner. When the options of setting up a <a href="https://www.kdl.kcl.ac.uk/how-we-work/why-work-us/">Service Level Agreement </a> for further hosting and maintenance with KDL and/or undertaking migration to IT Services at King’s or other institutions were deemed infeasible or inappropriate, the archiving process was initiated.</p>
+            <p class="readmore-target">We would like to thank research leads, the Faculty of Arts and Humanities at King’s College London, and partner institutions, for their support in this process.
+            </p>
+            <p class="readmore-target">For further information on KDL archiving and sustainability process see:</p>
+            <ul class="readmore-target">
+                <li>Smithies, J., Sichani, A.M., & Westling, C. (2017). <a href="http://jamessmithies.org/blog/2017/06/23/preserving-30-years-digital-humanities-work-experience-kings-digital-lab/">Preserving 30 years of Digital Humanities Work: The Experience of King’s College London  Digital Lab.</a> Presented at the DPASSH: Digital Preservation for Social Sciences and Humanities, University of Sussex.
+                </li>
+                <li>Smithies, J., P. Caton, G. Ferraro, L. Figueira, E. Hall, N. Jakeman, P. Mellen, A.M. Sicani, M. Vieira, T. Watts, Carina Westling. (2017). <a href="http://jamessmithies.org/blog/2017/08/17/mechanizing-humanities-kings-digital-lab-critical-experiment/">Mechanizing the Humanities? King’s Digital Lab as Critical Experiment.</a> Presented at the DH2017, McGill University, Montreal.
+                </li>
+            </ul>
+        </div>
+        <label for="readmore" class="readmore-trigger"></label>
+    </div>
+    <h5>Project name</h5>
+    <h1>PROJECT_NAME</h1>
+    <h5>Date of project activity</h5>
+    <p>Dates the project was active. Multiple date intervals separated by semi-colon</p>
+    <h5>Project principal investigator(s)</h5>
+    <p>PI and Co-I names</p>
+    <h5>Decommission Date</h5>
+    <p>Date the project was decommissioned</p>
+    <h5>Archive URL(s)</h5>
+    <p><a href="">Project URLs</a></p>
+    <h5>Additional links</h5>
+    <p><a href="">Link to archive.org (if available)</a></p>
+    <h5>Overview</h5>
+    <p>Short summary about the project</p>
+    <h5>Screenshot image</h5>
+    <img src="" />
+    <footer>
+        <p>Maintained by <a href="https://www.kdl.kcl.ac.uk">King's Digital Lab</a></p>
+        <img src="//www.kdl.kcl.ac.uk/static/images/kings-logo-red.svg" alt="King's College London logo" />
+    </footer>
+</body>
+
+</html>
